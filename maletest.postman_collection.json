@@ -1,0 +1,170 @@
+{
+	"id": "0894263d-4144-8206-43a6-4271c478104e",
+	"name": "maletest",
+	"description": "",
+	"order": [
+		"736f88ff-b943-7a35-69e5-471d383e51ea",
+		"6b676c9a-79a0-9d36-f2df-2285ab335693",
+		"c0fec115-d55e-1436-175c-c26ae8766cd9",
+		"46bec505-95c7-f2d3-8ab5-88cf5b2e6cda",
+		"50f2c12f-ec3b-bf7c-600b-d2c0f3e2c60e"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1558321539220,
+	"owner": "4614702",
+	"public": false,
+	"requests": [
+		{
+			"id": "46bec505-95c7-f2d3-8ab5-88cf5b2e6cda",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost/maletest/api/v1/answers",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1558322682568,
+			"name": "localhost/maletest/api/v1/answers",
+			"description": "",
+			"collectionId": "0894263d-4144-8206-43a6-4271c478104e",
+			"responses": [],
+			"rawModeData": "{\n\t\"userId\":1,\n\t\"questionId\":2,\n\t\"answer\":true\n}"
+		},
+		{
+			"id": "50f2c12f-ec3b-bf7c-600b-d2c0f3e2c60e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost/maletest/api/v1/ranking",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1558322765905,
+			"name": "localhost/maletest/api/v1/ranking",
+			"description": "",
+			"collectionId": "0894263d-4144-8206-43a6-4271c478104e",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"Patricio Pérez Pinto\",\n\t\"email\":\"pperezp@gmail.com\"\n}"
+		},
+		{
+			"id": "6b676c9a-79a0-9d36-f2df-2285ab335693",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost/maletest/api/v1/users/{email}",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1558322440939,
+			"name": "localhost/maletest/api/v1/users/{email}",
+			"description": "",
+			"collectionId": "0894263d-4144-8206-43a6-4271c478104e",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"Patricio Pérez Pinto\",\n\t\"email\":\"pperezp@gmail.com\"\n}"
+		},
+		{
+			"id": "736f88ff-b943-7a35-69e5-471d383e51ea",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost/maletest/api/v1/users",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "0894263d-4144-8206-43a6-4271c478104e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost/maletest/api/v1/users",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1558322098750,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"name\":\"Patricio Pérez Pinto\",\n\t\"email\":\"pperezp@gmail.com\"\n}"
+		},
+		{
+			"id": "c0fec115-d55e-1436-175c-c26ae8766cd9",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost/maletest/api/v1/questions",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1558322426329,
+			"name": "localhost/maletest/api/v1/questions",
+			"description": "",
+			"collectionId": "0894263d-4144-8206-43a6-4271c478104e",
+			"responses": [],
+			"rawModeData": "{\n\t\"name\":\"Patricio Pérez Pinto\",\n\t\"email\":\"pperezp@gmail.com\"\n}"
+		}
+	]
+}
