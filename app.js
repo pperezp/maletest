@@ -29,6 +29,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 /* BODY PARSER */
 
 /*---------------- Express Controller -----------------*/
+
+// Creación de usuario
 app.post(BASE_URL+'/users', (req, res) => {
     // https://www.w3schools.com/nodejs/nodejs_mysql_insert.asp
     res.setHeader("Content-Type","application/json");
@@ -36,12 +38,67 @@ app.post(BASE_URL+'/users', (req, res) => {
     var name = req.body.name;
     var email = req.body.email;
 
-    // Acá falta validar que el correo no exista en la base de datos
-
     var sql = `INSERT INTO user VALUES(NULL, '${name}', '${email}')`;
 
     con.query(sql, function (err, result) {
-        if (err) throw err;
+        if (err){
+            res.status(400).send(JSON.stringify(err, null, "\t"));
+        }
+        console.log(JSON.stringify(result, null, "\t"));
+        res.status(200).send(JSON.stringify(result, null, "\t"));
+    });
+});
+
+// Verificación de usuario por correo
+app.get(BASE_URL+'/users/:email', (req, res) => {
+    res.setHeader("Content-Type","application/json");
+
+    var email = req.params.email;
+
+    var sql = `SELECT * FROM user WHERE email = '${email}'`;
+
+    console.log(sql);
+
+    con.query(sql, function (err, result) {
+        if (err){
+            res.status(400).send(JSON.stringify(err, null, "\t"));
+        }
+
+        res.status(200).send(JSON.stringify(result, null, "\t"));
+    });
+});
+
+// Obtener preguntas
+app.get(BASE_URL+'/questions', (req, res) => {
+    res.setHeader("Content-Type","application/json");
+
+    var sql = "SELECT * FROM question ORDER BY RAND()";
+
+    console.log(sql);
+
+    con.query(sql, function (err, result) {
+        if (err){
+            res.status(400).send(JSON.stringify(err, null, "\t"));
+        }
+
+        res.status(200).send(JSON.stringify(result, null, "\t"));
+    });
+});
+
+// Responder una pregunta
+app.post(BASE_URL+'/answers', (req, res) => {
+    res.setHeader("Content-Type","application/json");
+
+    var userId = req.body.userId;
+    var questionId = req.body.questionId;
+    var answer = req.body.answer;
+
+    var sql = `INSERT INTO answer VALUES(NULL, ${userId}, ${questionId}, ${answer})`;
+
+    con.query(sql, function (err, result) {
+        if (err){
+            res.status(400).send(JSON.stringify(err, null, "\t"));
+        }
         console.log(JSON.stringify(result, null, "\t"));
         res.status(200).send(JSON.stringify(result, null, "\t"));
     });
