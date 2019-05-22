@@ -27,10 +27,12 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 var users = require('./controller/users.js');
 var questions = require('./controller/questions.js');
 var answers = require('./controller/answers.js');
+var session = require('./controller/session.js');
 
 app.use(BASE_URL+'/users', users);
 app.use(BASE_URL+'/questions', questions);
 app.use(BASE_URL+'/answers', answers);
+app.use(BASE_URL+'/session', session);
 /*---------------- Express Controller -----------------*/
 
 http.createServer(app).listen(PORT, () => {

@@ -16,27 +16,30 @@ CREATE TABLE question(
 );
 
 CREATE TABLE session(
-    uuid VARCHAR(36),
+    id INT AUTO_INCREMENT,
+    userId INT,
     date datetime,
-    PRIMARY KEY(uuid)
+    PRIMARY KEY(id),
+    FOREIGN KEY(userId) REFERENCES user(id)
 );
 
 CREATE TABLE answer(
     id INT AUTO_INCREMENT,
-    userId INT,
     questionId INT,
     answer BOOLEAN,
-    sessionId VARCHAR(36),
+    sessionId INT,
     PRIMARY KEY(id),
-    FOREIGN KEY(userId) REFERENCES user(id),
     FOREIGN KEY(questionId) REFERENCES question(id),
-    FOREIGN KEY(sessionId) REFERENCES session(uuid)
+    FOREIGN KEY(sessionId) REFERENCES session(id)
 );
 
 INSERT INTO user VALUES
 (NULL, 'Patricio Pérez Pinto', 'pperezp@gmail.com');
 
-INSERT INTO session VALUES('baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0', NOW());
+INSERT INTO user VALUES
+(NULL, 'Ricardo Soto', 'rsoto@gmail.com');
+
+INSERT INTO session VALUES(NULL, 1, NOW());
 
 INSERT INTO question VALUES
 (NULL, '¿Eres experto en Futbol?'),
@@ -75,40 +78,40 @@ INSERT INTO question VALUES
 (NULL, '¿Has matado a algún animal?');
 
 INSERT INTO answer VALUES
-(NULL, 1, 1,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 2,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 3,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 4,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 5,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 6,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 7,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 8,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 9,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 10,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 11,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 12,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 13,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 14,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 15,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 16,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 17,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 18,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 19,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 20,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 21,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 22,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 23,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 24,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 25,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 26,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 27,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 28,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 29,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 30,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 31,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 32,TRUE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 33,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'),
-(NULL, 1, 34,FALSE, 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0');
+(NULL, 1,TRUE, 1),
+(NULL, 2,TRUE, 1),
+(NULL, 3,FALSE, 1),
+(NULL, 4,FALSE, 1),
+(NULL, 5,TRUE, 1),
+(NULL, 6,TRUE, 1),
+(NULL, 7,TRUE, 1),
+(NULL, 8,FALSE, 1),
+(NULL, 9,TRUE, 1),
+(NULL, 10,TRUE, 1),
+(NULL, 11,TRUE, 1),
+(NULL, 12,TRUE, 1),
+(NULL, 13,FALSE, 1),
+(NULL, 14,FALSE, 1),
+(NULL, 15,TRUE, 1),
+(NULL, 16,FALSE, 1),
+(NULL, 17,TRUE, 1),
+(NULL, 18,TRUE, 1),
+(NULL, 19,TRUE, 1),
+(NULL, 20,FALSE, 1),
+(NULL, 21,TRUE, 1),
+(NULL, 22,TRUE, 1),
+(NULL, 23,FALSE, 1),
+(NULL, 24,TRUE, 1),
+(NULL, 25,TRUE, 1),
+(NULL, 26,TRUE, 1),
+(NULL, 27,TRUE, 1),
+(NULL, 28,FALSE, 1),
+(NULL, 29,TRUE, 1),
+(NULL, 30,FALSE, 1),
+(NULL, 31,TRUE, 1),
+(NULL, 32,TRUE, 1),
+(NULL, 33,FALSE, 1),
+(NULL, 34,FALSE, 1);
 
 SELECT * FROM user;
 SELECT * FROM question;
@@ -120,7 +123,7 @@ DROP TABLE session;
 DROP TABLE question;
 DROP TABLE user;
 
--- Porcentaje de male
+-- Porcentaje de macho segun usuario e id de session
 SELECT 
     (
         (
@@ -128,12 +131,11 @@ SELECT
                 COUNT(0) 
             FROM 
                 answer 
+                JOIN session ON session.id = answer.sessionId
             WHERE 
-                answer IS TRUE AND 
-                userId = 1 AND
-                sessionId = 'baafaa2d-7c2d-11e9-891d-c7d8e6f51aa0'
+                answer.answer IS TRUE AND 
+                session.userId = 1 AND
+                session.id = 1
         ) /
-        (
-            SELECT COUNT(0) FROM answer
-        ) * 100
+        (SELECT COUNT(0) FROM question) * 100
     ) 'Porcentaje';
